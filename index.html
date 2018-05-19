@@ -1,0 +1,164 @@
+<!doctype>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+	<script type="text/javascript">
+		function displayNum(n){
+			cal_form.display.value +=n;
+		}
+		var val;
+		function showAnswer(){
+			if(document.getElementById){
+				val = document.getElementById("display").value;
+				if (val){
+					try{ 
+						var valueToDisplay = eval(val);
+						document.getElementById("display").value= valueToDisplay;
+					} 
+					catch(e){
+					    document.getElementById("display").value= "Error";
+					} 
+					
+				}
+			}
+		}
+		function clearme(){
+			if(document.getElementById){
+				document.getElementById("display").value="";
+			}
+		}
+		function delme(){
+			 var valueN = document.getElementById("display").value;
+             var finalValueN = valueN.substr(0, valueN.length-1); 
+             document.getElementById("display").value=finalValueN; 
+		}
+	</script>
+
+	<style >
+		.container{
+			width: 18%; 
+			margin-left: auto; 
+			margin-right: auto; 
+			padding: 15px; 
+			background: #222; 
+			box-shadow: 5px 5px 15px #666; 
+			border: 1px solid #000; 
+			border-radius: 15px;
+		}
+		p {
+			text-align:left;
+			color: #000; 
+			font-weight: bolder;
+			width: 85px;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 5px;
+			border-radius: 17px 0px 17px 0px;
+			background: lightblue;
+		}
+		input[type=button]{
+			width: 52px;
+			background: lightblue;
+			color: #000;
+			padding: 8px;
+			box-sizing: border-box;
+			border: 1px solid black;
+			border-radius: 3px;
+			margin-top: 5px;
+			font-weight: bolder;
+			box-shadow: 2px 1px 2px #666; 
+		}
+		input[type=button]:hover{
+			background: maroon;
+			color: #fff;
+		}
+		.row{
+			background: #eee8dc;
+			width: 95%;
+			box-sizing: border-box;
+			margin: 8px auto;
+			padding: 5px;
+			border-radius: 3px;
+		}
+		#btnClear {
+			width: 108px;
+			color: #fff;
+			background: red;
+		}
+		#btnClear:hover{
+			background: maroon;
+			color: #fff;
+		}
+		#btnDel {
+			width: 108px;
+			color: #fff;
+			background: maroon;
+		}
+		#btnDel:hover {
+			background: red;
+			color: #fff;
+		}
+		#btnEqual {
+			width: 100%;
+			color: #000;
+			background: #daa520;
+		}
+		#btnEqual:hover{
+			background: green;
+			color: #fff;
+		}
+		#display {
+			width: 100%;
+			height: 50px;
+			background: lightblue;
+			color: green;
+			font-weight: bolder;
+			font-size: 24px;
+			border-radius: 5px;
+			padding: 5px;
+			text-align: right;
+		}
+		#btnAdd, #btnMul, #btnSub, #btnDiv{
+			background: #8b7e66;
+			color: #fff;
+		}
+		#btnAdd:hover, #btnMul:hover, #btnSub:hover, #btnDiv:hover{
+			background: #daa520;
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p>BTS Calc.</p>
+		<form name="cal_form" id="cal_form" method="post" style="width: 100%;">
+
+			<input type="text" name="display" id="display" placeholder="0" value="" ><br>
+			<div class="row">
+				<input type="button" value="C" name="btnClear" id="btnClear" onclick="clearme()" >
+				<input type="button" value="Del" name="btnDel" id="btnDel" onclick="delme()" >  <br>
+
+				<input type="button" value="7" name="btn7" id="btn7" onclick="displayNum(btn7.value)">
+				<input type="button" value="8" name="btn8" id="btn8" onclick="displayNum(btn8.value)">
+				<input type="button" value="9" name="btn9" id="btn9" onclick="displayNum(btn9.value)">
+				<input type="button" value="+" name="btnAdd" id="btnAdd" onclick="displayNum(btnAdd.value)"><br>
+				<input type="button" value="4" name="btn4" id="btn4" onclick="displayNum(btn4.value)">
+				<input type="button" value="5" name="btn5" id="btn5" onclick="displayNum(btn5.value)">
+				<input type="button" value="6" name="btn6" id="btn6" onclick="displayNum(btn6.value)">
+				<input type="button" value="*" name="btnMul" id="btnMul" onclick="displayNum(btnMul.value)"><br>
+				<input type="button" value="1" name="btn1" id="btn1" onclick="displayNum(btn1.value)">
+				<input type="button" value="2" name="btn2" id="btn2" onclick="displayNum(btn2.value)">
+				<input type="button" value="3" name="btn3" id="btn3" onclick="displayNum(btn3.value)">
+				<input type="button" value="/" name="btnDiv" id="btnDiv" onclick="displayNum(btnDiv.value)"><br>
+				<input type="button" value="0" name="btn0" id="btn0" onclick="displayNum(btn0.value)">
+				<input type="button" value="00" name="btn00" id="btn00" onclick="displayNum(btn00.value)">
+				<input type="button" value="." name="btnDot" id="btnDot" onclick="displayNum(btnDot.value)">
+				<input type="button" value="-" name="btnSub" id="btnSub" onclick="displayNum(btnSub.value)"><br>
+				<input type="button" value="=" name="btnEqual" id="btnEqual" onclick="showAnswer()">
+			</div>
+		</form>
+	</div>
+	<!-- <footer id="footer">Designed by <a href="#" target="_blank" style="color: #ffbb4f">BTS</a></footer> -->
+</body>
+</html>
